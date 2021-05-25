@@ -6,5 +6,5 @@ class Vector:
     def __repr__(self):
         return(str(self.x)+'i '+str(self.y)+'j')
 
-    def dotProduct(Vector v1, Vector v2):
-        return
+def dotProduct(v1,v2):
+    return(v1.x*v2.x + v1.y*v2.y)
