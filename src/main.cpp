@@ -1,4 +1,4 @@
-#include "SDL.h"
+#include "../include/SDL2/SDL.h"
 #include <iostream>
 
 int main(int argv, char** args)
