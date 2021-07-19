@@ -1,0 +1,2 @@
+g++ -o build/app src/main.cpp -I include/* -L lib/* -lm
+Makefile:4: recipe for target 'app' failed
