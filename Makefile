@@ -1,6 +1,6 @@
 # -*- MakeFile -*-
 
 all:
-	g++ -Wfatal-errors src/*.cpp -I "\include\SDL2" -L "/lib" -lmingw32 -lSDL2main -lSDL2 -o build/app 
+	g++ src/*.cpp -I. -Iinclude -Iinclude/SDL2 -Llib -lmingw32 -lSDL2main -lSDL2 -o build/app
 	.\build\app.exe
 

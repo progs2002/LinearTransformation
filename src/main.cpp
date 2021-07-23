@@ -1,11 +1,18 @@
 #include "../include/SDL2/SDL.h"
-#include <iostream>
+#include "Vector.h"
+#include "draw.h"
+#include "util.h"
 
 int main(int argv, char** args)
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	SDL_Window *window = SDL_CreateWindow("Hello SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+	Vector v1(0,0);
+	Vector v2(800,600);
+
+	RES size = getRES();
+
+	SDL_Window *window = SDL_CreateWindow("Hello SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.W, size.H, 0);
 	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
 
 	bool isRunning = true;
@@ -23,8 +30,11 @@ int main(int argv, char** args)
 			}
 		}
 
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 		SDL_RenderClear(renderer);
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+		drawLine(renderer,v1,v2);
 
 		SDL_RenderPresent(renderer);
 	}
