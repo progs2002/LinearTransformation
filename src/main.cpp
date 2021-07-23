@@ -20,12 +20,6 @@ int main(int argv, char** args)
 			case SDL_QUIT:
 				isRunning = false;
 				break;
-
-			case SDL_KEYDOWN:
-				if (event.key.keysym.sym == SDLK_ESCAPE)
-				{
-					isRunning = false;
-				}
 			}
 		}
 
