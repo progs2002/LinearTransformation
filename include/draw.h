@@ -2,7 +2,6 @@
 #include "SDL.h"
 #include "Vector.h"
 #include <utility>
-#include <iostream>
 
 extern Vector* offset;
 

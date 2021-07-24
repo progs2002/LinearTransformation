@@ -27,20 +27,20 @@ int main(int argv, char** args)
 	int vSize = size.W/gridSize;
 	int hSize = size.H/gridSize;
 
-	int tempV =  -1 * size.H/2;
-	int tempH =  -1 * size.W/2;
+	int tempV =  -1 * size.W/2;
+	int tempH = size.H/2;
 
 	std::pair<Vector*,Vector*>* ver = new std::pair<Vector*,Vector*>[vSize];
 	std::pair<Vector*,Vector*>* hor = new std::pair<Vector*,Vector*>[hSize];
 	for(int i = 0; i < vSize; i++)
 	{
-		ver[i] = {new Vector(tempV,size.H), new Vector(tempV, -1*size.H)};
+		ver[i] = {new Vector(tempV,size.H/2), new Vector(tempV, -1*size.H/2)};
 		tempV+=gridSize;
 	}
 
 	for(int i = 0; i < hSize; i++)
 	{
-		hor[i] = {new Vector(-size.W,tempH), new Vector(size.W,tempH)};
+		hor[i] = {new Vector(-size.W/2,tempH), new Vector(size.W/2,tempH)};
 		tempH-=gridSize;
 	}
 
