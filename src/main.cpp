@@ -44,6 +44,8 @@ int main(int argv, char** args)
 		tempH-=gridSize;
 	}
 
+	Matrix* transMatrix = getMatrix();
+
 	while (isRunning)
 	{
 		while (SDL_PollEvent(&event))
@@ -61,9 +63,10 @@ int main(int argv, char** args)
 		SDL_RenderClear(renderer);
 
 		//drawing other stuff
-		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 		drawGrid(renderer, ver, hor, i, j, vSize, hSize);
-
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+		drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
 		SDL_RenderPresent(renderer);
 	}
 

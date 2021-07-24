@@ -9,6 +9,6 @@ public:
     Matrix();
     Matrix(float,float,float,float);
 
-    Vector getiVector();
-    Vector getjVector();
+    Vector* getiVector();
+    Vector* getjVector();
 };

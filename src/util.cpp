@@ -25,3 +25,14 @@ RES getRES()
         }
     }
 }
+
+Matrix* getMatrix()
+{
+    using namespace std;
+    cout << "Enter your matrix" << endl;
+    int ix; cin >> ix;
+    int iy; cin >> iy;
+    int jx; cin >> jx;
+    int jy; cin >> jy;
+    return new Matrix(ix,iy,jx,jy);
+}
