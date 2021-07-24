@@ -3,7 +3,6 @@
 class Vector
 {
 public:
-
     float x,y;
 
     Vector(); 
@@ -11,5 +10,4 @@ public:
     Vector(float x, float y);
 
     float dotProduct(Vector v);
-
 };

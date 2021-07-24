@@ -14,5 +14,5 @@ Vector::Vector(float x ,float y)
 
 float Vector::dotProduct(Vector v)
 {
-    return (this->x * v.x) + (this->y * v.y);
+    return ((this->x * v.x) + (this->y * v.y));
 }
