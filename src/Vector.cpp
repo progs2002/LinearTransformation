@@ -16,3 +16,8 @@ float Vector::dotProduct(Vector v)
 {
     return ((this->x * v.x) + (this->y * v.y));
 }
+
+float Vector::magnitude()
+{
+    return(sqrt(pow(this->x,2)+pow(this->y,2)));
+}
