@@ -3,6 +3,7 @@
 #include "draw.h"
 #include "util.h"
 #include "Timer.h"
+#include "anim.h"
 
 int main(int argv, char** args)
 {
@@ -51,8 +52,8 @@ int main(int argv, char** args)
 		tempH-=gridSize;
 	}
 
-	//Matrix* transMatrix = getMatrix();
-	Matrix* transMatrix = new Matrix(0,0,0,0);
+	Matrix* transMatrix = getMatrix();
+	rotate(renderer,ver,hor,transMatrix,vSize,hSize);
 
 	while (isRunning)
 	{
@@ -66,11 +67,11 @@ int main(int argv, char** args)
 			}
 		}
 
+		/*
 		angle_radians = angle_degrees * 3.14159 / 180;
-		transMatrix->ix = cos(angle_radians);
-		transMatrix->iy = sin(angle_radians);
-		transMatrix->jx = -sin(angle_radians);
-		transMatrix->jy = cos(angle_radians);
+		float scale1 = 2 * sin(angle_radians);
+		float scale2 = 2 * cos(angle_radians);
+		*/
 
 		//rendering bg color
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
@@ -83,9 +84,27 @@ int main(int argv, char** args)
 		drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
 		SDL_RenderPresent(renderer);
 
+		/*
+		transMatrix->ix = scale1 * cos(angle_radians);
+		transMatrix->iy = scale2 * sin(angle_radians);
+		transMatrix->jx = scale1 * -sin(angle_radians);
+		transMatrix->jy = scale2 * cos(angle_radians);
+
+		//rendering bg color
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderClear(renderer);
+
+		//drawing other stuff
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+		drawGrid(renderer, ver, hor, i, j, vSize, hSize);
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+		drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
+		SDL_RenderPresent(renderer);
+		*/
+
 		//speed = 90 deg per second
 		//angle_degrees += 90 * getTime() * 1e-9;
-		angle_degrees += 0.01;
+		//angle_degrees += 0.01;
 	}
 
 	//cleanup
