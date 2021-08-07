@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:/MinGW/bin/g++.exe",
+			"args": [
+				"-g",
+				"src/*.cpp",
+				"-Iinclude",
+				"-Iinclude/SDL2",
+				"-Llib",
+				"-lmingw32",
+				"-lSDL2main",
+				"-lSDL2",
+				"-o",
+				"build\\app.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: C:/MinGW/bin/g++.exe"
+		}
+	]
+}
