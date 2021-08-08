@@ -57,7 +57,8 @@ int main(int argv, char** args)
 
 	Matrix* transMatrix = getMatrix();
 
-	i_scale = transMatrix->getiVector()
+	i_scale = transMatrix->getiVector()->magnitude();
+	j_scale = transMatrix->getjVector()->magnitude();
 
 	float i_angle = atan(transMatrix->iy/transMatrix->ix), j_angle = atan(transMatrix->jy/transMatrix->jx);
 	
@@ -86,21 +87,33 @@ int main(int argv, char** args)
 		if(state == 0 )
 		{
 			if(!iDone)
-				i_temp = new Vector(cos(temp_i_angle),sin(temp_i_angle));
+			{	i_temp = new Vector(cos(temp_i_angle),sin(temp_i_angle));
+				temp_i_angle+=0.0001;
+			}
 			if(!jDone)
+			{	
 				j_temp = new Vector(cos(temp_j_angle),sin(temp_j_angle));
+				temp_j_angle+=0.0001;
+			}
 			drawGrid(renderer, ver, hor, *i_temp, *j_temp, vSize, hSize);
-			temp_i_angle+=0.0001;
-			temp_j_angle+=0.0001;
 			if(temp_i_angle >= i_angle)	iDone = true;
 			if(temp_j_angle >= j_angle)	jDone = true;
 			if(iDone && jDone) {state = 1; iDone = false; jDone = false;}
 			// delete i_temp;
 			// delete j_temp;
 		}
-		else if(state == 1)
+		else if(state == 5) //TODO:- SCALING NOT WORKING
 		{
-
+			if(!iDone)
+				i_temp = new Vector(temp_i_scale * cos(i_angle),temp_i_scale * sin(i_angle));
+			if(!jDone)
+				j_temp = new Vector(temp_j_scale * cos(j_angle),temp_j_scale * sin(j_angle));
+			drawGrid(renderer, ver, hor, *i_temp, *j_temp, vSize, hSize);
+			temp_i_scale*=i_scale/100;
+			temp_j_scale*=j_scale/100;
+			if(temp_i_scale >= i_scale) iDone = true;
+			if(temp_j_scale >= j_scale) jDone = true;
+			if(iDone && jDone) {state = 2; iDone = false; jDone = false;}
 		}
 		else
 			drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
