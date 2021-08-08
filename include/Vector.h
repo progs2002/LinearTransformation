@@ -1,5 +1,5 @@
 #pragma once
-
+#include <math.h>
 class Vector
 {
 public:
@@ -10,4 +10,6 @@ public:
     Vector(float x, float y);
 
     float dotProduct(Vector v);
+
+    float magnitude();
 };

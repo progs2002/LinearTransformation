@@ -30,6 +30,17 @@ int main(int argv, char** args)
 	int tempV =  -1 * size.W/2;
 	int tempH = size.H/2;
 
+	float temp_i_angle = 0.0f;
+	float temp_j_angle = 0.0f;
+
+	float i_scale, j_scale;
+	float temp_i_scale = 1, temp_j_scale = 1; 
+
+	Vector* i_temp = new Vector(1,0);
+	Vector* j_temp = new Vector(0,1);
+
+	bool iDone = false, jDone = false;
+
 	std::pair<Vector*,Vector*>* ver = new std::pair<Vector*,Vector*>[vSize];
 	std::pair<Vector*,Vector*>* hor = new std::pair<Vector*,Vector*>[hSize];
 	for(int i = 0; i < vSize; i++)
@@ -45,6 +56,12 @@ int main(int argv, char** args)
 	}
 
 	Matrix* transMatrix = getMatrix();
+
+	i_scale = transMatrix->getiVector()
+
+	float i_angle = atan(transMatrix->iy/transMatrix->ix), j_angle = atan(transMatrix->jy/transMatrix->jx);
+	
+	int state = 0;
 
 	while (isRunning)
 	{
@@ -66,7 +83,27 @@ int main(int argv, char** args)
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
 		drawGrid(renderer, ver, hor, i, j, vSize, hSize);
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-		drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
+		if(state == 0 )
+		{
+			if(!iDone)
+				i_temp = new Vector(cos(temp_i_angle),sin(temp_i_angle));
+			if(!jDone)
+				j_temp = new Vector(cos(temp_j_angle),sin(temp_j_angle));
+			drawGrid(renderer, ver, hor, *i_temp, *j_temp, vSize, hSize);
+			temp_i_angle+=0.0001;
+			temp_j_angle+=0.0001;
+			if(temp_i_angle >= i_angle)	iDone = true;
+			if(temp_j_angle >= j_angle)	jDone = true;
+			if(iDone && jDone) {state = 1; iDone = false; jDone = false;}
+			// delete i_temp;
+			// delete j_temp;
+		}
+		else if(state == 1)
+		{
+
+		}
+		else
+			drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
 		SDL_RenderPresent(renderer);
 	}
 
