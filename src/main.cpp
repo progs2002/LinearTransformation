@@ -1,130 +1,102 @@
-#include "../include/SDL2/SDL.h"
-#include "Vector.h"
-#include "draw.h"
-#include "util.h"
+#include "Renderer.h"
 
-int main(int argv, char** args)
+Renderer* pen;
+Matrix* trans;
+
+Uint64 currentTick = SDL_GetPerformanceCounter();
+Uint64 lastTick = 0;
+double deltaTime = 0;
+
+SDL_Event event;
+
+bool isRunning = false;
+
+Grid* grid;
+RES size;
+
+void update()
+{
+	//get delta time
+
+	lastTick = currentTick;
+	currentTick = SDL_GetPerformanceCounter();
+	deltaTime = (double)((currentTick - lastTick) * 1000 / (double)SDL_GetPerformanceFrequency()); // in milliseconds
+	
+	//handle events
+
+	while (SDL_PollEvent(&event))
+	{
+		if (event.type == SDL_QUIT)
+		{
+			isRunning = false;
+			break;
+		}
+	}
+	
+}
+
+void render()
+{
+	//display simpleWindow
+	pen->setColour(40, 52, 156);
+	pen->drawBackGround();
+	pen->setColour(0, 0, 0);
+	pen->drawGrid(grid);
+	pen->setColour(255, 255, 255);
+	pen->drawtransGrid(grid, trans);
+	pen->present();
+}
+
+int init()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
-	
-	RES size = getRES();
+	size = getRES();
+	pen = new Renderer("Linear Transformations", size);
+	trans = getMatrix();
 
-	offset = new Vector(size.W/2,size.H/2); 
-
-	SDL_Window *window = SDL_CreateWindow("Linear Transformation", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, size.W, size.H, 0);
-	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
-
-	bool isRunning = true;
-	SDL_Event event;
-
-	Vector v1(300,300);
-	Vector v2(300,-300);
-	Vector i(1,0) , j(0,1);
-
-	//getting our grid vector pairs
+	//create grid
 	int gridSize = 50;
+	int tempV = -1 * size.H / 2;
+	int tempH = size.W / 2;
+	int vSize = size.W / gridSize;
+	int hSize = size.H / gridSize;
 
-	int vSize = size.W/gridSize;
-	int hSize = size.H/gridSize;
+	std::pair<Vector*, Vector*>* ver = new std::pair<Vector*, Vector*>[vSize];
+	std::pair<Vector*, Vector*>* hor = new std::pair<Vector*, Vector*>[hSize];
 
-	int tempV =  -1 * size.W/2;
-	int tempH = size.H/2;
-
-	float temp_i_angle = 0.0f;
-	float temp_j_angle = 0.0f;
-
-	float i_scale, j_scale;
-	float temp_i_scale = 1, temp_j_scale = 1; 
-
-	Vector* i_temp = new Vector(1,0);
-	Vector* j_temp = new Vector(0,1);
-
-	bool iDone = false, jDone = false;
-
-	std::pair<Vector*,Vector*>* ver = new std::pair<Vector*,Vector*>[vSize];
-	std::pair<Vector*,Vector*>* hor = new std::pair<Vector*,Vector*>[hSize];
-	for(int i = 0; i < vSize; i++)
+	for (int k = 0; k < vSize; k++)
 	{
-		ver[i] = {new Vector(tempV,size.H/2), new Vector(tempV, -1*size.H/2)};
-		tempV+=gridSize;
+		ver[k].first = new Vector(tempV, size.H);
+		ver[k].second = new Vector(tempV, -1*size.H);
+		tempV += gridSize;
 	}
 
-	for(int i = 0; i < hSize; i++)
+	for (int k = 0; k < hSize; k++)
 	{
-		hor[i] = {new Vector(-size.W/2,tempH), new Vector(size.W/2,tempH)};
-		tempH-=gridSize;
+		hor[k].first = new Vector(-1 * size.W, tempH);
+		hor[k].second = new Vector(size.W, tempH);
+		tempH -= gridSize;
 	}
 
-	Matrix* transMatrix = getMatrix();
+	grid = new Grid(gridSize,vSize,hSize,ver,hor);
 
-	i_scale = transMatrix->getiVector()->magnitude();
-	j_scale = transMatrix->getjVector()->magnitude();
+	isRunning = true;
+	return 1;
+}
 
-	float i_angle = atan(transMatrix->iy/transMatrix->ix), j_angle = atan(transMatrix->jy/transMatrix->jx);
-	
-	int state = 0;
+int main(int argc, char* args[])
+{
+	init();
 
 	while (isRunning)
 	{
-		while (SDL_PollEvent(&event))
-		{
-			switch (event.type)
-			{
-			case SDL_QUIT:
-				isRunning = false;
-				break;
-			}
-		}
-
-		//rendering bg color
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-		SDL_RenderClear(renderer);
-
-		//drawing other stuff
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
-		drawGrid(renderer, ver, hor, i, j, vSize, hSize);
-		SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
-		if(state == 0 )
-		{
-			if(!iDone)
-			{	i_temp = new Vector(cos(temp_i_angle),sin(temp_i_angle));
-				temp_i_angle+=0.0001;
-			}
-			if(!jDone)
-			{	
-				j_temp = new Vector(cos(temp_j_angle),sin(temp_j_angle));
-				temp_j_angle+=0.0001;
-			}
-			drawGrid(renderer, ver, hor, *i_temp, *j_temp, vSize, hSize);
-			if(temp_i_angle >= i_angle)	iDone = true;
-			if(temp_j_angle >= j_angle)	jDone = true;
-			if(iDone && jDone) {state = 1; iDone = false; jDone = false;}
-			// delete i_temp;
-			// delete j_temp;
-		}
-		else if(state == 5) //TODO:- SCALING NOT WORKING
-		{
-			if(!iDone)
-				i_temp = new Vector(temp_i_scale * cos(i_angle),temp_i_scale * sin(i_angle));
-			if(!jDone)
-				j_temp = new Vector(temp_j_scale * cos(j_angle),temp_j_scale * sin(j_angle));
-			drawGrid(renderer, ver, hor, *i_temp, *j_temp, vSize, hSize);
-			temp_i_scale*=i_scale/100;
-			temp_j_scale*=j_scale/100;
-			if(temp_i_scale >= i_scale) iDone = true;
-			if(temp_j_scale >= j_scale) jDone = true;
-			if(iDone && jDone) {state = 2; iDone = false; jDone = false;}
-		}
-		else
-			drawGrid(renderer, ver, hor, *(transMatrix->getiVector()), *(transMatrix->getjVector()), vSize, hSize);
-		SDL_RenderPresent(renderer);
+		update();
+		render();
 	}
 
-	delete offset;
-
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
+	delete pen;
+	delete trans;
+	delete grid;
 
 	return 0;
 }

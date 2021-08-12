@@ -4,10 +4,10 @@
 class Matrix
 {
 public:
-    float ix,iy,jx,jy;
+    float ix, iy, jx, jy;
 
     Matrix();
-    Matrix(float,float,float,float);
+    Matrix(float, float, float, float);
 
     Vector* getiVector();
     Vector* getjVector();

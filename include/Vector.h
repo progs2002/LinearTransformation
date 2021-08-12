@@ -3,9 +3,9 @@
 class Vector
 {
 public:
-    float x,y;
+    float x, y;
 
-    Vector(); 
+    Vector();
 
     Vector(float x, float y);
 
