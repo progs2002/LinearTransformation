@@ -51,8 +51,9 @@ int init()
 {
 	SDL_Init(SDL_INIT_EVERYTHING);
 	size = getRES();
-	pen = new Renderer("Linear Transformations", size);
 	trans = getMatrix();
+	pen = new Renderer("Linear Transformations", size);
+	
 
 	//create grid
 	int gridSize = 50;
