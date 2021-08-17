@@ -102,4 +102,4 @@ Now lets come to the fun part where you can try out the matrices yoruself. First
 
 <hr>
 
-This was one of my first serious projects i prepared specifically for the maths summer of expidition challenge. Although it isnt perfect it took me a lot of time to make this as a beginner. I hope you liked it and learnt something new from this. Any kind of contribution is appreciated. 
+This was one of my first serious projects i prepared specifically for the maths summer of expidition challenge. Although it isnt perfect it took me a lot of time to make this as a beginner. I hope you liked it and learnt something new from this. Any kind of contribution will be appreciated. 
