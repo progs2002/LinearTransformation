@@ -71,7 +71,7 @@ Now we take any vector from our original grid (such as <b>v</b> = 4<b>i</b> + 3<
 
 <img src = "img/vector.png" alt = "image of vector matrix could not be loaded">
 
-We mulitply these 2 matrices to get a resultant vector.
+We multiply these 2 matrices to get a resultant vector.
 
 <img src = "img/calculation.png" alt = "image of calculations could not be loaded">
 
