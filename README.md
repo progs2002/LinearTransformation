@@ -76,5 +76,19 @@ We mulitply these 2 matrices to get a resultant vector.
 <br>
 
 
-So 4i + 3j becomes 2i + 14j after transformation.
+So 4i + 3j becomes 2<b>i</b> + 14<b>j</b> after transformation, where <b>i</b> and <b>j</b> are our original basis vectors
 
+So just by specifying where our 2 basis vectors should land we can make a nice working transformation matrix. The general rule of thumb in making such a matrix is :-
+
+<img src = "img/matrixpreview.PNG" alt = "matrixpreview cannot be loaded">
+
+Where i<sub>x</sub> and i<sub>y</sub> are the x and y coordinates of the point where our basis vector <b>i</b> lands after transformation and the same goes for <b>j</b>.
+
+Now take any input vector <b>v1</b> = v1<sub>x</sub><b>i</b> + v1<sub>y</sub><b>j</b> in a 2x1 matrix like :-
+
+<img src = "img/vectorpreview.PNG" alt = "vectorpreveiw cannot be loaded">
+
+Now to get the resultant vector <b>v2</b> =  v2<sub>x</sub><b>i</b> + v2<sub>y</sub><b>j</b> we do the matrix multiplication of TransMatrix X InputVector.
+
+
+<img src = "img/previewcal.PNG" alt = "calculations image cannot be loaded">
