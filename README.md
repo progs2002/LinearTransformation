@@ -1,6 +1,6 @@
 # LinearTransformation
 
-## The goal of this article is to show you how useful matrices can be in transforming 2D space making relaly cool visual animations. I highly recommend you to read this document before moving on with the actual software
+## The goal of this article is to show you how useful matrices can be in transforming 2D space making really cool visual animations. I highly recommend you to read this document before moving on with the actual software
 
 <br>
 
