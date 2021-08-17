@@ -4,6 +4,8 @@
 
 <br>
 
+## `Explanation`
+
 Matrices are a lot more than boxes containing a few numbers (or any kind of data ). If we treat them like simple functions they can we really useful for transforming space (2D or 3D).
 In theory a function is like a machine, we give it an input and it spits out an output.
 <br>
