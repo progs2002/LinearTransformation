@@ -1,6 +1,6 @@
 # LinearTransformation
 
-## The goal of this article is to show you how useful matrices can be in transforming 2D space making really cool visual animations inspired by a youtube series <a href="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essense of Linear Algebra" by 3Blue1Brown.</a> I highly recommend you to read this document before moving on with the actual software
+## The goal of this article is to show you how useful matrices can be in transforming 2D space making really cool visual animations inspired by a youtube series <a href="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essense of Linear Algebra" by 3Blue1Brown</a> (Go check out his channel if you haven't already). I highly recommend you to read this document before moving on with the actual software
 
 <br>
 
