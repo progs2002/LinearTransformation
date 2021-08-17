@@ -24,7 +24,7 @@ What would the resultant space look like?
 
 Lets just take a grid in 2D space.
 
-<img src = "img/grid.PNG">
+<img src = "img/grid.PNG" alt = "grid image could not be loaded">
 
 <br> 
 <br> 
@@ -34,13 +34,13 @@ Now we apply this function to every point on this grid. What do we get? Well tha
 
 <br> 
 
-<img src = "img/transgrid.PNG">
+<img src = "img/transgrid.PNG" alt = "transformed grid image could not be loaded">
 
 <br>
 
 to this ...
 
-<img src = "img/linegrid.PNG">
+<img src = "img/linegrid.PNG" alt = "transformed grid image could not be loaded">
 
 <br>
 (this is all of 2D space squished into a single line)
@@ -54,24 +54,24 @@ By convention the unit vector i is taken to be 1 unit along the X axis and vecto
 
 <br>
 
-<img src = "img/basis.PNG">
+<img src = "img/basis.PNG" alt = "basis vectors image could not be loaded">
 
 This vector <b>v</b> is represented by scaling the i vector 4 times and the <b>j</b> vector 3 times.
 
 So every vector in our 2D plane is made of 2 basis vectors. If we transform these 2 basis vectors using our transformation function/matrix and then represent every other vector in our grid by scaling them along the new basis vectors, we will end up with a completely different grid. Our transformation matrix will contain information about the new coordinates where our basis vectors will land after the transformation takes place. Suppose after transformation our <b>i</b> vector goes from (1,0) to (2,2) and out <b>j</b> vector goes from (0,1) to (-2,2) then our transformation matrix will look like:- 
 
-<img src = "img/transMatrix.PNG">
+<img src = "img/transMatrix.PNG" alt = "image of matrix could not be loaded">
 
 <br>
 
 
 Now we take any vector from our original grid (such as <b>v</b> = 4<b>i</b> + 3<b>j</b>) in a matrix form represnted like :- 
 
-<img src = "img/vector.png">
+<img src = "img/vector.png" alt = "image of vector matrix could not be loaded">
 
 We mulitply these 2 matrices to get a resultant vector.
 
-<img src = "img/calculation.png">
+<img src = "img/calculation.png" alt = "image of calculations could not be loaded">
 
 <br>
 
