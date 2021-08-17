@@ -98,4 +98,6 @@ Now to get the resultant vector <b>v2</b> =  v2<sub>x</sub><b>i</b> + v2<sub>y</
 
 Now lets come to the fun part where you can try out the matrices yoruself. First make sure you have g++ installed, its a c++ compiler. If you dont have it then  for windows install the mingw package <a href = "https://sourceforge.net/projects/mingw/"> here</a> and make sure to add it to your path variable. If you are on linux then use your appropiate package manager to install g++. If you are on iOS then you can use clang. Now after cloning the repo double click on the respective run file. A terminal should open up asking you for your screen resolution or press enter for the default. Then you will be prompted to enter the values of a 2x2 matrix in the order of i<sub>x</sub>, i<sub>y</sub>, j<sub>x</sub> and j<sub>y</sub>. Press enter to see the window pop up where the black lines are the old grid and the white ones are new transformed grid. Pretty simple right?
 
-It was one of my first serious projects i prepared specifically for the maths summer of expidition challenge. Although it isnt perfect it took me a lot of time to make this as a beginner. I hope you liked it. Any kind of contribution is appreciated. 
+<hr>
+
+This was one of my first serious projects i prepared specifically for the maths summer of expidition challenge. Although it isnt perfect it took me a lot of time to make this as a beginner. I hope you liked it and learnt something new from this. Any kind of contribution is appreciated. 
