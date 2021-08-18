@@ -1,6 +1,6 @@
 # LinearTransformation
 
-## The goal of this article is to show you how useful matrices can be in transforming 2D space making really cool visual animations inspired by a youtube series <a href="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essense of Linear Algebra" by 3Blue1Brown</a> (Go check out his channel if you haven't already). I highly recommend you to read this document before moving on with the actual software.
+## The goal of this article is to show you how useful matrices can be in transforming 2D space and making really cool visuals. This repo is inspired by the youtube series <a href="https://youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">"Essense of Linear Algebra" by 3Blue1Brown</a> (Go check out his channel if you haven't already). I highly recommend you to read this document before moving on with the actual software.
 
 <br>
 
@@ -19,7 +19,7 @@ Lets think of a function that takes in a vector as input and spits out a new vec
 
 <b>v1</b> being our input vector and <b>v2</b> being our output vector.
 
-Now lets define this function f(<b>v</b>) such that  it can take any real 2D vector and give us some other real vector in return.
+Now lets define this function f(<b>v</b>) such that  it can take any real 2D vector and give us some other real 2D vector in return.
 
 Now imagine what happens if we take some 2D space and apply this function to every vector in that space?
 What would the resultant space look like?
