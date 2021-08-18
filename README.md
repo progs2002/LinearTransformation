@@ -56,24 +56,24 @@ By convention the unit vector i is taken to be 1 unit along the X axis and vecto
 
 <br>
 
-<img src = "img/basisL.png" src-dark = "img/basis.png" alt = "basis vectors image could not be loaded">
+<img src = "img/basisL.png" alt = "basis vectors image could not be loaded">
 
 This vector <b>v</b> is represented by scaling the i vector 4 times and the <b>j</b> vector 3 times.
 
 So every vector in our 2D plane is made of 2 basis vectors. If we transform these 2 basis vectors using our transformation function/matrix and then represent every other vector in our grid by scaling them along the new basis vectors, we will end up with a completely different grid. Our transformation matrix will contain information about the new coordinates where our basis vectors will land after the transformation takes place. Suppose after transformation our <b>i</b> vector goes from (1,0) to (2,2) and out <b>j</b> vector goes from (0,1) to (-2,2) then our transformation matrix will look like:- 
 
-<img src = "img/transMatrixL.png" src-dark = "img/transMatrix.png" alt = "image of matrix could not be loaded">
+<img src = "img/transMatrixL.png" alt = "image of matrix could not be loaded">
 
 <br>
 
 
 Now we take any vector from our original grid (such as <b>v</b> = 4<b>i</b> + 3<b>j</b>) in a matrix form represnted like :- 
 
-<img src = "img/vectorL.png" src-dark = "img/vector.png" alt = "image of vector matrix could not be loaded">
+<img src = "img/vectorL.png" alt = "image of vector matrix could not be loaded">
 
 We multiply these 2 matrices to get a resultant vector.
 
-<img src = "img/calculationL.png" src-dark = "img/calculation.png" alt = "image of calculations could not be loaded">
+<img src = "img/calculationL.png" alt = "image of calculations could not be loaded">
 
 <br>
 
@@ -82,18 +82,18 @@ So 4i + 3j becomes 2<b>i</b> + 14<b>j</b> after transformation, where <b>i</b> a
 
 So just by specifying where our 2 basis vectors should land we can make a nice working transformation matrix. The general rule of thumb in making such a matrix is :-
 
-<img src = "img/matrixpreviewL.png" src-dark = "img/matrixpreview.png" alt = "matrixpreview cannot be loaded">
+<img src = "img/matrixpreviewL.png" alt = "matrixpreview cannot be loaded">
 
 Where i<sub>x</sub> and i<sub>y</sub> are the x and y coordinates of the point where our basis vector <b>i</b> lands after transformation and the same goes for <b>j</b>.
 
 Now take any input vector <b>v1</b> = v1<sub>x</sub><b>i</b> + v1<sub>y</sub><b>j</b> in a 2x1 matrix like :-
 
-<img src = "img/vectorpreviewL.png" src-dark = "img/vectorpreview.png" alt = "vectorpreveiw cannot be loaded">
+<img src = "img/vectorpreviewL.png" alt = "vectorpreveiw cannot be loaded">
 
 Now to get the resultant vector <b>v2</b> =  v2<sub>x</sub><b>i</b> + v2<sub>y</sub><b>j</b> we do the matrix multiplication of TransMatrix X InputVector.
 
 
-<img src = "img/previewcalL.png" src-dark = "img/previewcal.png" alt = "calculations image cannot be loaded">
+<img src = "img/previewcalL.png" alt = "calculations image cannot be loaded">
 <hr>
 
 ## `How to run the software`
