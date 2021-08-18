@@ -17,7 +17,7 @@ Lets think of a function that takes in a vector as input and spits out a new vec
 <br>
 
 
-<b>v1</b> being our input vector adn <b>v2</b> being our output vector.
+<b>v1</b> being our input vector and <b>v2</b> being our output vector.
 
 Now lets define this function f(<b>v</b>) such that  it can take any real 2D vector and give us some other real vector in return.
 
@@ -47,11 +47,11 @@ to this ...
 <br>
 (this is all of 2D space squished into a single line)
 
-This function which takes in a vector and modifies it into a new vector is called a transformation function. After we transformed out grid, if the origin stays in place and the grid lines are parallel to each other then its known as a "linear transformation". Now how do we define a linear transformation function?
+This function which takes in a vector and modifies it into a new vector is called a transformation function. After we transformed our grid, if the origin stays in place and the grid lines are parallel to each other then its known as a "linear transformation". Now how do we define a linear transformation function?
 
-It is best done with matrices. Computer engineers and designers use matrices in animations/simulations all the time to define a change in space such as scaling or rotation or anything much more complicated. So how to define such a matrix you amy ask. 
+It is best done with matrices. Computer engineers and designers use matrices in animations/simulations all the time to define a change in space such as scaling or rotation or anything much more complicated. So how to define such a matrix you may ask. 
 
-In theory we can reoresent any vector as a combination of its basis vectors. For example :- <b>v</b> = 4<b>i</b> + 3<b>j</b>.
+In theory we can represent any vector as a combination of its basis vectors. For example :- <b>v</b> = 4<b>i</b> + 3<b>j</b>.
 By convention the unit vector i is taken to be 1 unit along the X axis and vector j is taken to be 1 unit length along the Y axis.
 
 <br>
@@ -98,8 +98,8 @@ Now to get the resultant vector <b>v2</b> =  v2<sub>x</sub><b>i</b> + v2<sub>y</
 
 ## `How to run the software`
 
-Now lets come to the fun part where you can try out the matrices yoruself. First make sure you have g++ installed, its a c++ compiler. If you dont have it then  for windows install the mingw package <a href = "https://sourceforge.net/projects/mingw/"> here</a> and make sure to add it to your path variable. If you are on linux then use your appropiate package manager to install g++. If you are on iOS then you can use clang. Now after cloning the repo double click on the respective run file. A terminal should open up asking you for your screen resolution or press enter for the default. Then you will be prompted to enter the values of a 2x2 matrix in the order of i<sub>x</sub>, i<sub>y</sub>, j<sub>x</sub> and j<sub>y</sub>. Press enter to see the window pop up where the black lines are the old grid and the white ones are new transformed grid. Pretty simple right?
+Now lets come to the fun part where you can try out the matrices yourself. First make sure you have a c++ compiler installed like `g++` if you are on Windows/Linux or `clang` if you are on Mac iOS. If you dont have it then  for windows install the mingw package <a href = "https://sourceforge.net/projects/mingw/"> here</a> and make sure to add it to your path variable. If you are on linux then use your appropiate package manager to install g++. If you are on iOS then you can use clang. Now after cloning the repo double click on the respective run file. A terminal should open up asking you for your screen resolution or press enter for the default. Then you will be prompted to enter the values of a 2x2 matrix in the order of i<sub>x</sub>, i<sub>y</sub>, j<sub>x</sub> and j<sub>y</sub>. Press enter to see the window pop up where the black lines are the old grid and the white ones are new transformed grid. Pretty simple right?
 
 <hr>
 
-This was one of my first serious projects i prepared specifically for the maths summer of expidition challenge. Although it isnt perfect it took me a lot of time to make this as a beginner. I hope you liked it and learnt something new from this. Any kind of contribution will be appreciated. 
+This was one of my first serious projects that i made specifically for The Summer of Math Exposition. Although it isnt perfect it took me a lot of time to make this as a beginner. I hope you liked it and learnt something new from this. Any kind of contribution will be appreciated. 
